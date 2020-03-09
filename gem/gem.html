@@ -271,22 +271,9 @@
         </span>
       </section>
     </div>
-    <!-- This line should go where you want to put your button -->
-    <!--
-    <div
-      class="money-button"
-      data-to="16723"
-      data-amount=".00035"
-      data-currency="BSV"
-      data-label="Purchase"
-      data-client-identifier="90f5ba7cbea2b2f74a0f3095d4af0829"
-      data-button-id="1580534539287"
-      data-button-data="{}"
-      data-type="buy"
-    ></div>
--->
+   
     <div id="my-money-button"></div>
-    <div id="my-button"></div>
+    <div id="not-shown" style="color:#5689de;"></div>
 
     <!-- This line can go anywhere -->
     <script src="https://www.moneybutton.com/moneybutton.js"></script>
@@ -309,22 +296,12 @@
           console.log("onError", arg);
         }
       });
+
       function displayHiddenContent(payment) {
         // be sure to validate the transaction - does it have the right outputs?
         document.getElementById("my-hidden-content").innerHTML =
           "Hidden content.";
       }
-
-      moneyButton.render(document.getElementById("my-button"), {
-        to: "16723@moneybutton.com",
-        amount: "0.02",
-        currency: "USD",
-        label: "Purchase",
-        clientIdentifier: "90f5ba7cbea2b2f74a0f3095d4af0829",
-        buttonId: "1580534539287",
-        buttonData: "{}",
-        onPayment: displayHiddenContent
-      });
 
       function myCustomCallback(payment) {
         console.log("A payment has occurred!", payment);
@@ -332,10 +309,26 @@
 
       moneyButton.render(div, {
         to: "16723@moneybutton.com",
-        amount: "0.25",
+        amount: "0.10",
         currency: "USD",
-        onPayment: myCustomCallback
+        //onPayment: myCustomCallback
+        onPayment: success_payment
       });
+
+      function success_payment(payment) {
+        var y = document.getElementById("not-shown");
+
+        y.innerHTML =
+          "TXID: " +
+          payment.txid +
+          "<br /> Player ID: " +
+          payment.userId +
+          "<br /> Status: " +
+          payment.status +
+          "<br /> Time: " +
+          payment.createdAt;
+        console.log(payment);
+      }
     </script>
   </body>
 </html>
