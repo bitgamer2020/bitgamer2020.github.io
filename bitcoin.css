@@ -30,15 +30,32 @@ header .menu ul li {
     
 
 }
+.navHead{
+    margin-top: 30px;
+}
+#jackPot {
+  border-radius: 25px;
+  border: 2px solid #a6a6a6;
+  padding: 20px; 
+  width: 150px;
+  height: 70px
+ 
+}
+p {
+ text-align: center;
+ 
+}
 .nav{
     margin-left: 20%;
 }
 span {
     text-decoration: underline;
 }
-
+.bitLogo-img{
+    width: 800px;
+}
 h3 {
-    margin-top: 50px;
+    margin-top: 120px;
     text-align: center;
     color: #9E9A99;
 }
@@ -184,6 +201,7 @@ a.socialIcon:hover,
   background-color: #D3D3D3;
 }
 footer {
+    margin-top: 75px;
     text-align: center;
     padding: 20px 0px 20px 0;
     background-color: #f0a35b;  
